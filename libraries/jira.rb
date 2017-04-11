@@ -39,6 +39,15 @@ module Jira
     end
     # rubocop:enable Metrics/AbcSize
 
+    def jira_virtual_host_name
+      node['jira']['apache2']['virtual_host_name'] || node['fqdn']
+    end
+
+    def jira_virtual_host_alias
+      node['jira']['apache2']['virtual_host_alias'] || node['hostname']
+    end
+
+
     # Detects the current JIRA version.
     # Returns nil if JIRA isn't installed.
     #
@@ -450,3 +459,4 @@ end
 
 ::Chef::Recipe.send(:include, Jira::Helpers)
 ::Chef::Resource.send(:include, Jira::Helpers)
+::Chef::Mixin::Template::TemplateContext.send(:include, Jira::Helpers)

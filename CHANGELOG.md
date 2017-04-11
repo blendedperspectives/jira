@@ -1,5 +1,9 @@
 ## x.y.z (pending)
 
+* Converted `virtual_host_name` and `virtual_host_alias` derived attrs
+  into helper methods for templates, etc.
+[[#45]](https://github.com/afklm/jira/issues/45)
+
 ## 2.14.1
 
 * Enable a switch to activate/disable apache2

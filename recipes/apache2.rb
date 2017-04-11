@@ -10,6 +10,6 @@ log 'forcing apache restart' do
   only_if { node['platform'] == 'ubuntu' && node['platform_version'].to_f == 12.04 }
 end
 
-web_app node['jira']['apache2']['virtual_host_alias'] do
+web_app jira_virtual_host_alias do
   cookbook node['jira']['apache2']['template_cookbook']
 end
